@@ -108,14 +108,14 @@ public class Matriz {
 			System.out.println("Error");		
 		}
 		int filaSel = Integer.parseInt(numFila);
+		
 		System.out.println("You have entered a valid row" + "\n" + "Please, choose your seat letter");	
 		return filaSel;	
 	}
 	
 	
-	public String[][] actualizarTabla(String[][] matrix, String Letra, int fil, String ticket){
-		
-		Scanner entradaLet = new Scanner(System.in);		
+	public String[][] actualizarTabla(String[][] matrix, String Letra, int fil, String ticket){		
+			
 		String tipoClase = "";				
 		if(ticket.equals("1")){tipoClase="F";}
 		else if(ticket.equals("2")){tipoClase="B";}
@@ -125,7 +125,7 @@ public class Matriz {
 				!Letra.equals("D") && !Letra.equals("E") && !Letra.equals("F")) {
 			
 			System.out.println("Please, enter a valid seat letter");
-			Letra = entradaLet.nextLine();			
+			Letra = entrada.nextLine();			
 		}		
 		
 		while (Letra.equals("A") && matrix[fil-1][1].equals(tipoClase) || Letra.equals("B") && matrix[fil-1][2].equals(tipoClase) ||
@@ -133,7 +133,7 @@ public class Matriz {
 				Letra.equals("E") && matrix[fil-1][5].equals(tipoClase) || Letra.equals("F") && matrix[fil-1][6].equals(tipoClase)){
 			
 			System.out.println("The selected seat is booked, select other letter:");
-			Letra = entradaLet.nextLine();
+			Letra = entrada.nextLine();
 		}
 		
 		System.out.println("You have entered a valid seat letter");			
@@ -154,19 +154,22 @@ public class Matriz {
 			break;
 		default:
 			System.out.println("Error");					
-		}
+		}		
 		return matrix;
 	}
 	
-	public void mostrarFilas(String[][] matrix, String ticket){		
+	public String mostrarFilas(String[][] matrix, String ticket){		
 		
-		String [][] matrixNueva;
-		matrixNueva = matrix;
-		Scanner entradaTipo = new Scanner(System.in);
+		String typeSeat ="";		
+		
+		if(ticket.equals("1")){typeSeat="First";}
+		else if(ticket.equals("2")){typeSeat="Business";}
+		else if(ticket.equals("3")){typeSeat="Economic";} 
 		
 		while (!ticket.equals("1") && !ticket.equals("2") && !ticket.equals("3")) {			
-			System.out.println("Please, enter a valid ticket type");
-			ticket = entradaTipo.nextLine();}
+			System.out.println("Please, enter a valid ticket type");			
+			ticket = entrada.nextLine();
+			}
 		
 		if(ticket.equals("1")){						
 			
@@ -177,7 +180,7 @@ public class Matriz {
 					System.out.print(matrix[x][i]);
 				}
 				System.out.println();}
-			System.out.println("These are first class seats." + "\n" + "Please, choose your row number");
+			typeSeat="First";			
 		}
 		if(ticket.equals("2")){					
 			
@@ -188,7 +191,7 @@ public class Matriz {
 					System.out.print(matrix[x][i]);
 				}
 				System.out.println();}
-			System.out.println("These are Business class seats." + "\n" + "Please, choose your row number");
+			typeSeat="Business";			
 		}
 		if(ticket.equals("3")){						
 			
@@ -199,8 +202,10 @@ public class Matriz {
 					System.out.print(matrix[x][i]);
 				}
 				System.out.println();}
-			System.out.println("These are Economy class seats." + "\n" + "Please, choose your row number");
-		}		
+			typeSeat="Economic";			
+		}
+		
+		return "These are " + typeSeat + " class seats." + "\n" + "Please, choose your row number";		
 		
 	}
 

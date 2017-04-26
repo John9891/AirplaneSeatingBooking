@@ -25,13 +25,14 @@ public class Application {
 		System.out.println("1-First Class" + "\n" + "2-Business Class" + "\n" + "3-Economic Class");		
 		String ticket = entrada.nextLine();
 		
-		tabla.mostrarFilas(matrix, ticket);			
+		String mensaje = tabla.mostrarFilas(matrix, ticket);
+		System.out.println(mensaje);
 		
 		int fila = tabla.validarFila(ticket);			
 			
 		String Let = entrada.nextLine();		
 		String [][] matrixActual = tabla.actualizarTabla(matrix, Let, fila, ticket);	
-		
+		entrada.close();
 		tabla.mostrarTablaFinal(matrixActual);
 		
 	}
