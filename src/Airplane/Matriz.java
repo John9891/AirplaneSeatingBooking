@@ -127,9 +127,7 @@ public class Matriz {
 			System.out.println("Please, enter a valid seat letter");
 			Letra = entradaLet.nextLine();			
 		}		
-		System.out.println("La letra es " + Letra);
-		System.out.println("La matriz tiene" + matrix[fil-1][2]);
-		System.out.println("El tipo de clase es " + tipoClase);
+		
 		while (Letra.equals("A") && matrix[fil-1][1].equals(tipoClase) || Letra.equals("B") && matrix[fil-1][2].equals(tipoClase) ||
 				Letra.equals("C") && matrix[fil-1][3].equals(tipoClase) || Letra.equals("D") && matrix[fil-1][4].equals(tipoClase) ||
 				Letra.equals("E") && matrix[fil-1][5].equals(tipoClase) || Letra.equals("F") && matrix[fil-1][6].equals(tipoClase)){

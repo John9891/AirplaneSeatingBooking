@@ -11,7 +11,7 @@ public class Application {
 		System.out.print("        -       -       -       -       -       -" + "\n");		
 		Matriz tabla = new Matriz();		
 		String [][] matrix = tabla.getMatrix();
-		for(int i=0; i<matrix.length; i++){		//Imprime la reserva actual del avión
+		for(int i=0; i<matrix.length; i++){
 			
 			for(int j=0; j<matrix[i].length; j++){				
 								
@@ -25,15 +25,12 @@ public class Application {
 		System.out.println("1-First Class" + "\n" + "2-Business Class" + "\n" + "3-Economic Class");		
 		String ticket = entrada.nextLine();
 		
-		tabla.mostrarFilas(matrix, ticket);		//Verifica el tipo de pasaje ingresado y muestra las filas correspondientes				
-		
-		///Ingresar método para validar fila
+		tabla.mostrarFilas(matrix, ticket);			
 		
 		int fila = tabla.validarFila(ticket);			
 			
-		String Let = entrada.nextLine();		//Captura letra del asiento
-		
-		String [][] matrixActual = tabla.actualizarTabla(matrix, Let, fila, ticket); //Se ingresa método actualizarTabla	
+		String Let = entrada.nextLine();		
+		String [][] matrixActual = tabla.actualizarTabla(matrix, Let, fila, ticket);	
 		
 		tabla.mostrarTablaFinal(matrixActual);
 		
